@@ -1,0 +1,26 @@
+class Solution {
+    public int countDigitOne(int n) {
+       if(n<=0)
+        {
+            return 0;
+        }
+        int x=1 , q=n;
+        int ans=0;
+        do{
+            int digit = q%10;
+            q=q/10;
+            ans = ans+q*x;
+            if(digit==1)
+            {
+                ans= ans+n%x+1;
+            }
+            if(digit>1)
+            {
+                ans = ans+x;
+            }
+            x=x*10;
+        }
+        while(q>0);
+        return ans;
+    }
+}
